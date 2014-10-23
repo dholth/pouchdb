@@ -37,7 +37,7 @@ for i, v in ipairs(json.docs) do
     for k,v in pairs(v) do
         args[k] = cjson.encode(v)
     end
-    local subreq = ngx.location.capture('/db/' .. db .. '/' .. id, {args=args})
+    local subreq = ngx.location.capture('/' .. db .. '/' .. id, {args=args})
     ngx.print(subreq.body)
     if i < #json.docs then
         ngx.say(',')
